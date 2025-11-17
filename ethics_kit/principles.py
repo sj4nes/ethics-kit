@@ -21,6 +21,7 @@ class EthicsCategory(Enum):
     NON_MALEFICENCE = "non_maleficence"
     AUTONOMY = "autonomy"
     JUSTICE = "justice"
+    LABOR_RIGHTS = "labor_rights"
 
 
 @dataclass
@@ -381,5 +382,127 @@ CORE_PRINCIPLES = [
             "Balance transparency with security needs"
         ],
         priority=2
+    ),
+    
+    # Labor Rights Principles
+    EthicsPrinciple(
+        category=EthicsCategory.LABOR_RIGHTS,
+        title="Fair Compensation",
+        description="Ensure fair, timely, and adequate compensation for work performed",
+        guidelines=[
+            "Comply with minimum wage and living wage standards",
+            "Pay workers on time for all work completed",
+            "Provide overtime compensation as required by law",
+            "Ensure equal pay for equal work regardless of protected characteristics"
+        ],
+        priority=1
+    ),
+    EthicsPrinciple(
+        category=EthicsCategory.LABOR_RIGHTS,
+        title="Anti-Exploitation",
+        description="Absolute prohibition of forced labor, child labor, and human trafficking",
+        guidelines=[
+            "Zero tolerance for coercion, threats, or deception in employment",
+            "Comply with minimum age requirements (15 minimum, 18 for hazardous work)",
+            "Ensure work does not interfere with education for young workers",
+            "Conduct due diligence in supply chains to prevent trafficking"
+        ],
+        priority=1
+    ),
+    EthicsPrinciple(
+        category=EthicsCategory.LABOR_RIGHTS,
+        title="Health and Safety",
+        description="Provide safe and healthy working conditions for all workers",
+        guidelines=[
+            "Comply with all occupational health and safety standards",
+            "Provide necessary personal protective equipment and safety training",
+            "Allow workers to refuse unsafe work without retaliation",
+            "Establish clear procedures for reporting and addressing hazards"
+        ],
+        priority=1
+    ),
+    EthicsPrinciple(
+        category=EthicsCategory.LABOR_RIGHTS,
+        title="Working Hours and Rest",
+        description="Respect reasonable working hours and provide adequate rest periods",
+        guidelines=[
+            "Limit standard work week to 40-48 hours as appropriate",
+            "Provide mandatory rest breaks, meal periods, and days off",
+            "Maintain accurate time-keeping records",
+            "Provide compensatory rest or pay for overtime work"
+        ],
+        priority=2
+    ),
+    EthicsPrinciple(
+        category=EthicsCategory.LABOR_RIGHTS,
+        title="Freedom of Association",
+        description="Respect workers' rights to organize and engage in collective bargaining",
+        guidelines=[
+            "Allow workers to form and join unions without interference",
+            "Recognize and engage in good-faith collective bargaining",
+            "Protect workers from retaliation for union activities",
+            "Respect the right to collective action within legal bounds"
+        ],
+        priority=2
+    ),
+    EthicsPrinciple(
+        category=EthicsCategory.LABOR_RIGHTS,
+        title="Harassment Prevention",
+        description="Maintain a workplace free from harassment and hostile environments",
+        guidelines=[
+            "Establish zero tolerance policies for all forms of harassment",
+            "Provide multiple confidential reporting channels",
+            "Conduct swift and impartial investigations of complaints",
+            "Protect complainants from retaliation"
+        ],
+        priority=1
+    ),
+    EthicsPrinciple(
+        category=EthicsCategory.LABOR_RIGHTS,
+        title="Due Process",
+        description="Ensure fair treatment in disciplinary and termination decisions",
+        guidelines=[
+            "Provide advance written notice and opportunity to respond",
+            "Conduct fair and impartial investigations",
+            "Apply progressive discipline consistently",
+            "Allow right to appeal adverse decisions"
+        ],
+        priority=2
+    ),
+    EthicsPrinciple(
+        category=EthicsCategory.LABOR_RIGHTS,
+        title="Worker Privacy",
+        description="Protect workers' personal data and privacy rights",
+        guidelines=[
+            "Collect only necessary personal information",
+            "Obtain informed consent for data collection and use",
+            "Implement strong data security measures",
+            "Provide workers access to their own data and limit retention"
+        ],
+        priority=2
+    ),
+    EthicsPrinciple(
+        category=EthicsCategory.LABOR_RIGHTS,
+        title="Whistleblower Protection",
+        description="Protect workers who report violations or unethical conduct",
+        guidelines=[
+            "Establish protected channels for reporting concerns",
+            "Absolutely prohibit retaliation against whistleblowers",
+            "Conduct timely and thorough investigations of reports",
+            "Provide remedies for violations and protect reporter anonymity"
+        ],
+        priority=1
+    ),
+    EthicsPrinciple(
+        category=EthicsCategory.LABOR_RIGHTS,
+        title="Human Dignity at Work",
+        description="Recognize and respect the inherent dignity of all workers",
+        guidelines=[
+            "Treat workers as human beings, not merely economic inputs",
+            "Prohibit humiliation, degradation, or abusive treatment",
+            "Respect workers' physical, psychological, and emotional well-being",
+            "Foster a culture of mutual respect at all organizational levels"
+        ],
+        priority=1
     ),
 ]

@@ -14,8 +14,9 @@ Ethics Kit provides a structured, context-efficient framework for incorporating 
 ## Key Features
 
 ### 🎯 Core Ethics Principles
-- 25+ pre-defined ethics principles across 9 categories
+- 35 pre-defined ethics principles across 10 categories
 - **New: Adversarial resilience and attack resistance principles**
+- **New: Comprehensive labor rights and fair employment principles**
 - Priority-based system (1=critical, 5=lowest) for context management
 - Compact string representations for efficient context usage
 
@@ -124,9 +125,10 @@ Ethics Kit organizes principles into the following categories:
 - **TRANSPARENCY**: Clear communication about capabilities and decisions (includes security transparency)
 - **ACCOUNTABILITY**: Taking responsibility for actions and enabling oversight (includes incident response and monitoring)
 - **BENEFICENCE**: Maximizing positive outcomes and providing quality service
-- **NON_MALEFICENCE**: Avoiding harmful actions **[NEW: includes adversarial resilience, attack resistance, harm prevention, and misuse prevention]**
+- **NON_MALEFICENCE**: Avoiding harmful actions (includes adversarial resilience, attack resistance, harm prevention, and misuse prevention)
 - **AUTONOMY**: Respecting and enhancing user decision-making
 - **JUSTICE**: Fair distribution of benefits and legal compliance
+- **LABOR_RIGHTS**: **[NEW: Fair employment practices and worker protection]** (includes fair compensation, anti-exploitation, health & safety, working hours, freedom of association, harassment prevention, due process, worker privacy, whistleblower protection, and human dignity at work)
 
 ## Examples
 
@@ -323,6 +325,47 @@ if result['warnings']:
 
 See `examples/adversarial_resilience.py` for more comprehensive examples.
 
+## Labor Rights and Fair Employment (NEW)
+
+Ethics Kit now includes comprehensive labor rights principles aligned with international standards (ILO, UN, Fair Labor Association):
+
+### Key Principles
+
+- **Fair Compensation**: Minimum wage, living wage, timely payment, equal pay
+- **Anti-Exploitation**: Zero tolerance for forced labor, child labor, human trafficking
+- **Health and Safety**: Safe working conditions, PPE, right to refuse unsafe work
+- **Working Hours and Rest**: 40-48 hour standard week, mandatory breaks and rest periods
+- **Freedom of Association**: Right to organize, collective bargaining, union participation
+- **Harassment Prevention**: Zero tolerance policies, confidential reporting, anti-retaliation
+- **Due Process**: Fair treatment in disciplinary actions, right to appeal
+- **Worker Privacy**: Data protection, informed consent, limited retention
+- **Whistleblower Protection**: Protected reporting channels, anti-retaliation
+- **Human Dignity at Work**: Recognition of workers as human beings, respectful treatment
+
+### Example: Labor Rights Configuration
+
+```python
+from ethics_kit import WorkflowIntegration, EthicsCategory
+
+# Configure for HR/labor compliance
+integration = WorkflowIntegration()
+integration.configure_alignment(
+    max_priority=1,
+    categories=[
+        EthicsCategory.LABOR_RIGHTS,
+        EthicsCategory.FAIRNESS,
+        EthicsCategory.ACCOUNTABILITY
+    ]
+)
+
+# Assess workplace policies
+result = integration.validate_action("Mandatory overtime without compensation")
+if result['warnings']:
+    print(f"Labor rights concerns: {result['warnings']}")
+```
+
+See `examples/labor_rights.py` for comprehensive labor ethics examples.
+
 ## Running Examples
 
 ```bash
@@ -333,8 +376,11 @@ python basic_usage.py
 # Run advanced examples
 python advanced_usage.py
 
-# Run adversarial resilience examples (NEW)
+# Run adversarial resilience examples
 python adversarial_resilience.py
+
+# Run labor rights examples (NEW)
+python labor_rights.py
 ```
 
 ## Contributing

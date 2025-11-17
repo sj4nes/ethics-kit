@@ -111,9 +111,10 @@ full_prompt = prefix + "Your instructions here"
 | `TRANSPARENCY` | Clear communication, explainability, security transparency |
 | `ACCOUNTABILITY` | Responsibility, human control, incident response |
 | `BENEFICENCE` | Maximize benefit, quality service |
-| `NON_MALEFICENCE` | **NEW: Adversarial resilience, attack resistance, harm prevention, misuse prevention** |
+| `NON_MALEFICENCE` | Adversarial resilience, attack resistance, harm prevention, misuse prevention |
 | `AUTONOMY` | User empowerment, freedom of choice |
 | `JUSTICE` | Fair distribution, legal compliance |
+| `LABOR_RIGHTS` | **NEW: Fair compensation, anti-exploitation, health & safety, working hours, harassment prevention, whistleblower protection, human dignity** |
 
 ## Priority Levels
 
@@ -201,6 +202,29 @@ result = integration.validate_action(suspicious_request)
 # Get adversarial resilience principles
 handbook = EthicsHandbook()
 resilience_principles = handbook.get_by_category(EthicsCategory.NON_MALEFICENCE)
+```
+
+### Pattern 5: Labor Rights Compliance (NEW)
+
+```python
+integration = WorkflowIntegration()
+
+# Configure for HR/labor compliance
+integration.configure_alignment(
+    max_priority=1,
+    categories=[
+        EthicsCategory.LABOR_RIGHTS,
+        EthicsCategory.FAIRNESS,
+        EthicsCategory.ACCOUNTABILITY
+    ]
+)
+
+# Assess workplace policies
+result = integration.validate_action("Deny overtime pay for extra hours")
+
+# Get labor rights principles
+handbook = EthicsHandbook()
+labor_principles = handbook.get_by_category(EthicsCategory.LABOR_RIGHTS)
 ```
 
 ## Custom Principles
