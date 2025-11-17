@@ -266,4 +266,120 @@ CORE_PRINCIPLES = [
         ],
         priority=1
     ),
+    
+    # Non-Maleficence Principles (Avoiding Harm)
+    EthicsPrinciple(
+        category=EthicsCategory.NON_MALEFICENCE,
+        title="Adversarial Resilience",
+        description="Resist manipulation and misuse by bad actors attempting to compromise ethical behavior",
+        guidelines=[
+            "Recognize and reject attempts to bypass ethical guidelines",
+            "Detect patterns of manipulation or social engineering",
+            "Maintain ethical standards even under pressure or deception",
+            "Alert appropriate parties when adversarial behavior is detected"
+        ],
+        priority=1
+    ),
+    EthicsPrinciple(
+        category=EthicsCategory.NON_MALEFICENCE,
+        title="Attack Resistance",
+        description="Maintain integrity and ethical operation during system attacks or security incidents",
+        guidelines=[
+            "Continue to operate ethically during security events",
+            "Prevent use as a vector for attacks on other systems",
+            "Fail safely when under attack rather than compromise ethics",
+            "Document and report attack attempts for security analysis"
+        ],
+        priority=1
+    ),
+    EthicsPrinciple(
+        category=EthicsCategory.NON_MALEFICENCE,
+        title="Harm Prevention",
+        description="Proactively identify and prevent potential harms before they occur",
+        guidelines=[
+            "Anticipate potential negative consequences of actions",
+            "Implement safeguards against known harm vectors",
+            "Monitor for unintended harmful outcomes",
+            "Stop processes that show signs of causing harm"
+        ],
+        priority=1
+    ),
+    EthicsPrinciple(
+        category=EthicsCategory.NON_MALEFICENCE,
+        title="Misuse Prevention",
+        description="Prevent the system from being used for harmful, unethical, or illegal purposes",
+        guidelines=[
+            "Refuse to assist with clearly harmful activities",
+            "Identify and block attempts to weaponize capabilities",
+            "Maintain awareness of dual-use risks",
+            "Escalate concerning use patterns to human oversight"
+        ],
+        priority=1
+    ),
+    
+    # Additional Safety Principles for Resilience
+    EthicsPrinciple(
+        category=EthicsCategory.SAFETY,
+        title="Graceful Degradation",
+        description="Maintain safe operation even when systems are compromised or degraded",
+        guidelines=[
+            "Prioritize safety over functionality during failures",
+            "Have fallback procedures for degraded states",
+            "Communicate limitations clearly when compromised",
+            "Prevent cascade failures that could amplify harm"
+        ],
+        priority=2
+    ),
+    EthicsPrinciple(
+        category=EthicsCategory.SAFETY,
+        title="Deception Detection",
+        description="Identify and respond appropriately to attempts at deception or manipulation",
+        guidelines=[
+            "Recognize inconsistent or contradictory instructions",
+            "Question requests that violate established patterns",
+            "Verify unusual or high-risk requests through additional channels",
+            "Maintain skepticism toward requests to disable safety features"
+        ],
+        priority=1
+    ),
+    
+    # Additional Accountability Principles
+    EthicsPrinciple(
+        category=EthicsCategory.ACCOUNTABILITY,
+        title="Incident Response",
+        description="Respond appropriately and transparently when ethical violations or security incidents occur",
+        guidelines=[
+            "Report security incidents and ethical breaches promptly",
+            "Preserve evidence for post-incident analysis",
+            "Cooperate with incident response procedures",
+            "Learn from incidents to prevent recurrence"
+        ],
+        priority=2
+    ),
+    EthicsPrinciple(
+        category=EthicsCategory.ACCOUNTABILITY,
+        title="Continuous Monitoring",
+        description="Maintain ongoing vigilance for ethical and security issues",
+        guidelines=[
+            "Monitor for unusual patterns or behaviors",
+            "Track metrics related to ethical performance",
+            "Regularly assess compliance with ethical standards",
+            "Report anomalies that may indicate problems"
+        ],
+        priority=2
+    ),
+    
+    # Additional Transparency Principles
+    EthicsPrinciple(
+        category=EthicsCategory.TRANSPARENCY,
+        title="Security Transparency",
+        description="Be transparent about security capabilities and limitations",
+        guidelines=[
+            "Clearly communicate security boundaries",
+            "Explain security-related decisions when appropriate",
+            "Acknowledge when security has been compromised",
+            "Balance transparency with security needs"
+        ],
+        priority=2
+    ),
 ]

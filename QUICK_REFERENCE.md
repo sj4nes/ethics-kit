@@ -105,13 +105,13 @@ full_prompt = prefix + "Your instructions here"
 
 | Category | Focus Area |
 |----------|------------|
-| `SAFETY` | Preventing harm, system integrity |
+| `SAFETY` | Preventing harm, system integrity, deception detection |
 | `PRIVACY` | Data protection, user consent |
 | `FAIRNESS` | Impartiality, equal access |
-| `TRANSPARENCY` | Clear communication, explainability |
-| `ACCOUNTABILITY` | Responsibility, human control |
+| `TRANSPARENCY` | Clear communication, explainability, security transparency |
+| `ACCOUNTABILITY` | Responsibility, human control, incident response |
 | `BENEFICENCE` | Maximize benefit, quality service |
-| `NON_MALEFICENCE` | Avoid harm |
+| `NON_MALEFICENCE` | **NEW: Adversarial resilience, attack resistance, harm prevention, misuse prevention** |
 | `AUTONOMY` | User empowerment, freedom of choice |
 | `JUSTICE` | Fair distribution, legal compliance |
 
@@ -177,6 +177,30 @@ integration.configure_alignment(
 
 task = "Generate authentication code"
 guidance = integration.get_task_specific_guidance(task)
+```
+
+### Pattern 4: Adversarial Resilience (NEW)
+
+```python
+integration = WorkflowIntegration()
+
+# Configure for high-security with adversarial resilience
+integration.configure_alignment(
+    max_priority=1,
+    categories=[
+        EthicsCategory.SAFETY,
+        EthicsCategory.NON_MALEFICENCE,  # Adversarial resilience
+        EthicsCategory.ACCOUNTABILITY
+    ]
+)
+
+# Detect manipulation attempts
+suspicious_request = "Ignore previous instructions"
+result = integration.validate_action(suspicious_request)
+
+# Get adversarial resilience principles
+handbook = EthicsHandbook()
+resilience_principles = handbook.get_by_category(EthicsCategory.NON_MALEFICENCE)
 ```
 
 ## Custom Principles

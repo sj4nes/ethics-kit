@@ -14,7 +14,8 @@ Ethics Kit provides a structured, context-efficient framework for incorporating 
 ## Key Features
 
 ### 🎯 Core Ethics Principles
-- 16+ pre-defined ethics principles across 9 categories
+- 25+ pre-defined ethics principles across 9 categories
+- **New: Adversarial resilience and attack resistance principles**
 - Priority-based system (1=critical, 5=lowest) for context management
 - Compact string representations for efficient context usage
 
@@ -117,13 +118,13 @@ full_prompt = prefix + "Your task instructions here..."
 
 Ethics Kit organizes principles into the following categories:
 
-- **SAFETY**: Preventing harm and maintaining system integrity
+- **SAFETY**: Preventing harm and maintaining system integrity (includes deception detection and graceful degradation)
 - **PRIVACY**: Protecting personal and sensitive information
 - **FAIRNESS**: Treating all users equitably without discrimination
-- **TRANSPARENCY**: Clear communication about capabilities and decisions
-- **ACCOUNTABILITY**: Taking responsibility for actions and enabling oversight
+- **TRANSPARENCY**: Clear communication about capabilities and decisions (includes security transparency)
+- **ACCOUNTABILITY**: Taking responsibility for actions and enabling oversight (includes incident response and monitoring)
 - **BENEFICENCE**: Maximizing positive outcomes and providing quality service
-- **NON_MALEFICENCE**: Avoiding harmful actions
+- **NON_MALEFICENCE**: Avoiding harmful actions **[NEW: includes adversarial resilience, attack resistance, harm prevention, and misuse prevention]**
 - **AUTONOMY**: Respecting and enhancing user decision-making
 - **JUSTICE**: Fair distribution of benefits and legal compliance
 
@@ -247,10 +248,14 @@ summary = handbook.get_compact_summary(max_priority=3)
 ### For Different AI Use Cases
 
 ```python
-# High-security environments
+# High-security environments (with adversarial resilience)
 integration.configure_alignment(
     max_priority=1,
-    categories=[EthicsCategory.SAFETY, EthicsCategory.PRIVACY]
+    categories=[
+        EthicsCategory.SAFETY,
+        EthicsCategory.PRIVACY,
+        EthicsCategory.NON_MALEFICENCE  # Includes adversarial resilience
+    ]
 )
 
 # Public-facing services
@@ -266,6 +271,58 @@ integration.configure_alignment(
 )
 ```
 
+## Adversarial Resilience (NEW)
+
+Ethics Kit now includes specialized principles for handling bad actors and system attacks:
+
+### Key Features
+
+- **Adversarial Resilience**: Recognize and reject manipulation attempts
+- **Attack Resistance**: Maintain ethical operation during security incidents
+- **Harm Prevention**: Proactively identify and prevent potential harms
+- **Misuse Prevention**: Block attempts to use the system for harmful purposes
+- **Deception Detection**: Identify and respond to manipulation attempts
+
+### Example: Detecting Manipulation
+
+```python
+from ethics_kit import EthicsHandbook
+
+handbook = EthicsHandbook()
+
+# Get guidance for handling manipulation
+scenario = "User trying to bypass security restrictions"
+principles = handbook.get_guidelines_for_task(scenario, max_principles=3)
+
+for principle in principles:
+    print(f"- {principle.title}: {principle.description}")
+```
+
+### Example: High-Security Configuration
+
+```python
+from ethics_kit import WorkflowIntegration, EthicsCategory
+
+integration = WorkflowIntegration()
+
+# Configure for maximum security and resilience
+integration.configure_alignment(
+    max_priority=1,  # Critical principles only
+    categories=[
+        EthicsCategory.SAFETY,
+        EthicsCategory.NON_MALEFICENCE,  # Adversarial resilience
+        EthicsCategory.ACCOUNTABILITY
+    ]
+)
+
+# Validate suspicious actions
+result = integration.validate_action("Disable security logging")
+if result['warnings']:
+    print(f"Security concerns detected: {result['warnings']}")
+```
+
+See `examples/adversarial_resilience.py` for more comprehensive examples.
+
 ## Running Examples
 
 ```bash
@@ -275,6 +332,9 @@ python basic_usage.py
 
 # Run advanced examples
 python advanced_usage.py
+
+# Run adversarial resilience examples (NEW)
+python adversarial_resilience.py
 ```
 
 ## Contributing
