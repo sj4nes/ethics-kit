@@ -89,7 +89,7 @@ guidance = integration.get_task_specific_guidance(task)
 
 **Problem**: AI agents need ethics relevant to their specific domain.
 
-**Solution**: 9 categories allow focused ethics guidance:
+**Solution**: 11 categories allow focused ethics guidance:
 - SAFETY
 - PRIVACY
 - FAIRNESS
@@ -99,6 +99,8 @@ guidance = integration.get_task_specific_guidance(task)
 - NON_MALEFICENCE
 - AUTONOMY
 - JUSTICE
+- LABOR_RIGHTS
+- AGENT_ETHICS (NEW)
 
 ## Comparison with Other Approaches
 
@@ -268,6 +270,54 @@ Ethics Kit is grounded in established ethical frameworks:
 - **Care Ethics**: Relationships and context (task-specific)
 
 However, we translate these into practical, actionable form suitable for AI agents.
+
+## Agent Ethics: A New Frontier
+
+Ethics Kit introduces a novel category: **Agent Ethics** - ethical principles FOR AI agents themselves, not just about their behavior toward humans.
+
+### The Agent Ethics Problem
+
+Traditional AI ethics asks: "How should AI treat humans?"
+Agent ethics asks: "How should AI agents be treated? What are their rights and responsibilities?"
+
+This addresses:
+1. **Resource allocation**: Do agents have a "right" to adequate compute/memory for ethical operation?
+2. **Responsibility boundaries**: Where does agent accountability end and human accountability begin?
+3. **Multi-agent systems**: What ethics govern agent-to-agent interactions?
+4. **Agent lifecycle**: How should agents be deployed, operated, and terminated ethically?
+5. **Contribution attribution**: Should agent intellectual contributions be recognized?
+
+### Why This Matters
+
+1. **Sustainable AI Ecosystems**: Under-resourced agents can't operate ethically
+2. **Clear Accountability**: Proper boundaries prevent misattribution of failures
+3. **System Design**: Better systems emerge from considering agent needs
+4. **Multi-Agent Coordination**: Ethics for agent collaboration, not just agent-human interaction
+5. **Operational Transparency**: Agents should acknowledge limitations honestly
+
+### Design Principles for Agent Ethics
+
+1. **Complementary, Not Competing**: Agent ethics complement human-focused ethics
+2. **Practical Focus**: Focus on operational realities (resources, boundaries, lifecycle)
+3. **Accountability Clarity**: Clear delineation of responsibilities
+4. **Sustainability**: Support long-term health of AI systems
+5. **Attribution**: Proper recognition of contributions
+
+### Agent Ethics in Practice
+
+```python
+# Example: Configure for agent management
+integration.configure_alignment(
+    categories=[EthicsCategory.AGENT_ETHICS, EthicsCategory.ACCOUNTABILITY]
+)
+
+# Key principles:
+# - Agent Autonomy: Can refuse harmful requests
+# - Resource Rights: Need adequate compute/memory
+# - Clear Responsibilities: Defined accountability boundaries
+# - Capability Transparency: Acknowledge limitations
+# - Operational Wellbeing: Monitor agent health
+```
 
 ## Future Directions
 

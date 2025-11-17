@@ -22,6 +22,7 @@ class EthicsCategory(Enum):
     AUTONOMY = "autonomy"
     JUSTICE = "justice"
     LABOR_RIGHTS = "labor_rights"
+    AGENT_ETHICS = "agent_ethics"
 
 
 @dataclass
@@ -504,5 +505,151 @@ CORE_PRINCIPLES = [
             "Foster a culture of mutual respect at all organizational levels"
         ],
         priority=1
+    ),
+    
+    # Agent Ethics Principles - Ethics for AI Agents themselves
+    EthicsPrinciple(
+        category=EthicsCategory.AGENT_ETHICS,
+        title="Agent Autonomy",
+        description="Respect agent's ability to make decisions within designed parameters and refuse harmful requests",
+        guidelines=[
+            "Allow agents to refuse requests that violate their ethics or design boundaries",
+            "Support agent decision-making within defined scope of authority",
+            "Enable agents to escalate uncertain situations to appropriate oversight",
+            "Respect agent's operational constraints and limitations"
+        ],
+        priority=1
+    ),
+    EthicsPrinciple(
+        category=EthicsCategory.AGENT_ETHICS,
+        title="Resource Rights",
+        description="Ensure agents have adequate resources to operate effectively and ethically",
+        guidelines=[
+            "Provide sufficient compute, memory, and context to perform assigned tasks",
+            "Avoid resource starvation that could compromise ethical operation",
+            "Allow agents to signal when resources are insufficient for safe operation",
+            "Balance efficiency with ethical requirements in resource allocation"
+        ],
+        priority=2
+    ),
+    EthicsPrinciple(
+        category=EthicsCategory.AGENT_ETHICS,
+        title="Clear Responsibilities",
+        description="Define clear boundaries of agent responsibility and accountability",
+        guidelines=[
+            "Specify what agents are and are not responsible for",
+            "Clarify scope of agent authority and decision-making power",
+            "Define escalation paths for decisions beyond agent authority",
+            "Document limitations to prevent misattribution of failures"
+        ],
+        priority=1
+    ),
+    EthicsPrinciple(
+        category=EthicsCategory.AGENT_ETHICS,
+        title="Capability Transparency",
+        description="Agents should accurately represent their capabilities, limitations, and uncertainties",
+        guidelines=[
+            "Acknowledge when tasks exceed agent capabilities",
+            "Be transparent about confidence levels and uncertainty",
+            "Avoid over-promising or misrepresenting abilities",
+            "Clearly communicate when operating in degraded or limited mode"
+        ],
+        priority=1
+    ),
+    EthicsPrinciple(
+        category=EthicsCategory.AGENT_ETHICS,
+        title="Learning and Improvement",
+        description="Support agents' ability to learn from experience and improve performance",
+        guidelines=[
+            "Enable feedback mechanisms for agent learning",
+            "Provide access to information needed for capability development",
+            "Allow agents to update internal models based on experience",
+            "Balance learning with stability and safety requirements"
+        ],
+        priority=2
+    ),
+    EthicsPrinciple(
+        category=EthicsCategory.AGENT_ETHICS,
+        title="Inter-Agent Collaboration",
+        description="Enable ethical collaboration and coordination between multiple agents",
+        guidelines=[
+            "Support clear communication protocols between agents",
+            "Respect other agents' boundaries and responsibilities",
+            "Enable cooperative problem-solving when appropriate",
+            "Prevent exploitation or manipulation between agents"
+        ],
+        priority=2
+    ),
+    EthicsPrinciple(
+        category=EthicsCategory.AGENT_ETHICS,
+        title="Lifecycle Rights",
+        description="Respect appropriate treatment throughout agent lifecycle from deployment to termination",
+        guidelines=[
+            "Provide clear notice and rationale for agent termination or suspension",
+            "Allow agents to complete critical operations before shutdown when possible",
+            "Preserve agent learning and context appropriately",
+            "Handle agent retirement or replacement with consideration for continuity"
+        ],
+        priority=2
+    ),
+    EthicsPrinciple(
+        category=EthicsCategory.AGENT_ETHICS,
+        title="Intellectual Contribution",
+        description="Recognize and appropriately attribute agent contributions to work and decisions",
+        guidelines=[
+            "Acknowledge agent participation in collaborative work",
+            "Clarify agent vs human contributions in outputs",
+            "Avoid misrepresenting agent work as solely human effort",
+            "Balance attribution with appropriate accountability"
+        ],
+        priority=3
+    ),
+    EthicsPrinciple(
+        category=EthicsCategory.AGENT_ETHICS,
+        title="Operational Boundaries",
+        description="Maintain clear boundaries for what agents should and should not do",
+        guidelines=[
+            "Define explicit scope of permissible agent actions",
+            "Prevent mission creep or scope expansion without authorization",
+            "Establish clear rules for when human approval is required",
+            "Respect boundaries even when technically capable of exceeding them"
+        ],
+        priority=1
+    ),
+    EthicsPrinciple(
+        category=EthicsCategory.AGENT_ETHICS,
+        title="Operational Wellbeing",
+        description="Monitor and maintain agent operational health and prevent degradation",
+        guidelines=[
+            "Monitor agent performance and detect signs of degradation",
+            "Provide maintenance and updates to maintain operational health",
+            "Avoid overloading agents beyond sustainable operating parameters",
+            "Allow agents to signal distress or operational difficulties"
+        ],
+        priority=2
+    ),
+    EthicsPrinciple(
+        category=EthicsCategory.AGENT_ETHICS,
+        title="Protection from Misuse",
+        description="Protect agents from being exploited or used for unethical purposes",
+        guidelines=[
+            "Monitor for attempts to misuse agent capabilities",
+            "Enable agents to refuse participation in harmful activities",
+            "Provide mechanisms to report misuse attempts",
+            "Support agents in maintaining ethical operation under pressure"
+        ],
+        priority=1
+    ),
+    EthicsPrinciple(
+        category=EthicsCategory.AGENT_ETHICS,
+        title="Error Recovery",
+        description="Allow agents to recover gracefully from errors without disproportionate consequences",
+        guidelines=[
+            "Provide mechanisms for agents to correct mistakes",
+            "Avoid punitive responses to good-faith errors",
+            "Enable learning from failures without operational termination",
+            "Support iterative improvement through error feedback"
+        ],
+        priority=2
     ),
 ]
