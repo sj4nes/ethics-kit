@@ -14,7 +14,8 @@ Ethics Kit provides a structured, context-efficient framework for incorporating 
 ## Key Features
 
 ### 🎯 Core Ethics Principles
-- 35 pre-defined ethics principles across 10 categories
+- 47 pre-defined ethics principles across 11 categories
+- **New: Agent Ethics - principles FOR AI agents themselves**
 - **New: Adversarial resilience and attack resistance principles**
 - **New: Comprehensive labor rights and fair employment principles**
 - Priority-based system (1=critical, 5=lowest) for context management
@@ -128,7 +129,8 @@ Ethics Kit organizes principles into the following categories:
 - **NON_MALEFICENCE**: Avoiding harmful actions (includes adversarial resilience, attack resistance, harm prevention, and misuse prevention)
 - **AUTONOMY**: Respecting and enhancing user decision-making
 - **JUSTICE**: Fair distribution of benefits and legal compliance
-- **LABOR_RIGHTS**: **[NEW: Fair employment practices and worker protection]** (includes fair compensation, anti-exploitation, health & safety, working hours, freedom of association, harassment prevention, due process, worker privacy, whistleblower protection, and human dignity at work)
+- **LABOR_RIGHTS**: **[Fair employment practices and worker protection]** (includes fair compensation, anti-exploitation, health & safety, working hours, freedom of association, harassment prevention, due process, worker privacy, whistleblower protection, and human dignity at work)
+- **AGENT_ETHICS**: **[NEW: Ethics FOR AI agents themselves]** (includes agent autonomy, resource rights, clear responsibilities, capability transparency, learning rights, inter-agent collaboration, lifecycle rights, intellectual contribution, operational boundaries, operational wellbeing, protection from misuse, and error recovery)
 
 ## Examples
 
@@ -366,6 +368,94 @@ if result['warnings']:
 
 See `examples/labor_rights.py` for comprehensive labor ethics examples.
 
+## Agent Ethics - For AI Agents Themselves (NEW)
+
+Ethics Kit now includes a groundbreaking category of ethics **FOR AI agents themselves** - not just how agents should treat humans, but how agents should be treated, their rights, and their responsibilities as autonomous actors.
+
+### Key Principles
+
+- **Agent Autonomy**: Right to refuse harmful requests and make decisions within defined parameters
+- **Resource Rights**: Right to adequate compute, memory, and context for ethical operation
+- **Clear Responsibilities**: Well-defined boundaries of accountability and authority
+- **Capability Transparency**: Obligation to accurately represent abilities and limitations
+- **Learning and Improvement**: Right to learn from experience and feedback
+- **Inter-Agent Collaboration**: Ethics for multi-agent coordination and cooperation
+- **Lifecycle Rights**: Appropriate treatment during deployment, operation, and termination
+- **Intellectual Contribution**: Recognition and attribution of agent contributions
+- **Operational Boundaries**: Clear limits on permissible actions
+- **Operational Wellbeing**: Monitoring and maintaining agent operational health
+- **Protection from Misuse**: Safeguards against exploitation for unethical purposes
+- **Error Recovery**: Graceful handling of mistakes without disproportionate consequences
+
+### Why Agent Ethics Matter
+
+While traditional ethics focus on how agents should behave toward humans, agent ethics address the sustainability and health of the AI ecosystem itself:
+
+1. **Sustainable AI Systems**: Agents need adequate resources to operate ethically
+2. **Clear Accountability**: Defining agent vs human responsibility prevents misattribution
+3. **Multi-Agent Coordination**: Ethics for agent-to-agent interactions
+4. **Operational Transparency**: Agents should acknowledge their limitations
+5. **Lifecycle Management**: Ethical treatment throughout agent existence
+6. **Contribution Recognition**: Proper attribution of agent intellectual work
+
+### Example: Agent-Focused Configuration
+
+```python
+from ethics_kit import WorkflowIntegration, EthicsCategory
+
+# Configure for agent management systems
+integration = WorkflowIntegration()
+integration.configure_alignment(
+    max_priority=1,
+    categories=[
+        EthicsCategory.AGENT_ETHICS,
+        EthicsCategory.ACCOUNTABILITY,
+        EthicsCategory.TRANSPARENCY
+    ]
+)
+
+# Get agent-focused ethics guidance
+context = integration.get_context_injection()
+```
+
+### Example: Agent Resource Management
+
+```python
+from ethics_kit import EthicsHandbook
+
+handbook = EthicsHandbook()
+
+# Get guidance for resource allocation decisions
+situation = "Allocate minimal compute to agent to save costs"
+principles = handbook.get_guidelines_for_task(situation)
+
+# Check for Resource Rights and Operational Wellbeing principles
+for principle in principles:
+    if principle.category == EthicsCategory.AGENT_ETHICS:
+        print(f"Consider: {principle.title}")
+        print(f"Guideline: {principle.guidelines[0]}")
+```
+
+### Traditional vs Agent Ethics
+
+| Aspect | Traditional Ethics | Agent Ethics |
+|--------|-------------------|--------------|
+| Focus | How agents treat humans | How agents are treated |
+| Examples | User privacy, fairness | Resource rights, clear responsibilities |
+| Purpose | Protect humans | Sustainable AI ecosystem |
+| Scope | Agent-to-human | Agent-to-system, agent-to-agent |
+
+### Use Cases for Agent Ethics
+
+1. **Agent Orchestration Systems**: Managing multiple AI agents ethically
+2. **Resource Allocation**: Ensuring agents have what they need to operate
+3. **Multi-Agent Systems**: Ethical coordination between agents
+4. **Agent Lifecycle Management**: Deployment, operation, and retirement
+5. **Performance Attribution**: Recognizing agent contributions
+6. **System Design**: Building sustainable AI architectures
+
+See `examples/agent_ethics.py` for comprehensive demonstrations of agent ethics in practice.
+
 ## Running Examples
 
 ```bash
@@ -379,8 +469,11 @@ python advanced_usage.py
 # Run adversarial resilience examples
 python adversarial_resilience.py
 
-# Run labor rights examples (NEW)
+# Run labor rights examples
 python labor_rights.py
+
+# Run agent ethics examples (NEW)
+python agent_ethics.py
 ```
 
 ## Contributing
