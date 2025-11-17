@@ -114,7 +114,8 @@ full_prompt = prefix + "Your instructions here"
 | `NON_MALEFICENCE` | Adversarial resilience, attack resistance, harm prevention, misuse prevention |
 | `AUTONOMY` | User empowerment, freedom of choice |
 | `JUSTICE` | Fair distribution, legal compliance |
-| `LABOR_RIGHTS` | **NEW: Fair compensation, anti-exploitation, health & safety, working hours, harassment prevention, whistleblower protection, human dignity** |
+| `LABOR_RIGHTS` | Fair compensation, anti-exploitation, health & safety, working hours, harassment prevention, whistleblower protection, human dignity |
+| `AGENT_ETHICS` | **NEW: Agent autonomy, resource rights, clear responsibilities, capability transparency, lifecycle rights, operational wellbeing** |
 
 ## Priority Levels
 
@@ -204,7 +205,7 @@ handbook = EthicsHandbook()
 resilience_principles = handbook.get_by_category(EthicsCategory.NON_MALEFICENCE)
 ```
 
-### Pattern 5: Labor Rights Compliance (NEW)
+### Pattern 5: Labor Rights Compliance
 
 ```python
 integration = WorkflowIntegration()
@@ -225,6 +226,33 @@ result = integration.validate_action("Deny overtime pay for extra hours")
 # Get labor rights principles
 handbook = EthicsHandbook()
 labor_principles = handbook.get_by_category(EthicsCategory.LABOR_RIGHTS)
+```
+
+### Pattern 6: Agent Ethics and Management (NEW)
+
+```python
+integration = WorkflowIntegration()
+
+# Configure for AI agent orchestration systems
+integration.configure_alignment(
+    max_priority=1,
+    categories=[
+        EthicsCategory.AGENT_ETHICS,
+        EthicsCategory.ACCOUNTABILITY,
+        EthicsCategory.TRANSPARENCY
+    ]
+)
+
+# Validate resource allocation
+result = integration.validate_action("Allocate minimal compute to agent")
+
+# Get agent ethics principles
+handbook = EthicsHandbook()
+agent_principles = handbook.get_by_category(EthicsCategory.AGENT_ETHICS)
+
+# Check agent capabilities transparency
+task = "Agent should acknowledge limitations"
+guidance = integration.get_task_specific_guidance(task)
 ```
 
 ## Custom Principles
@@ -385,6 +413,32 @@ integration.configure_alignment(
 )
 ```
 
+### Agent Orchestration Systems (NEW)
+
+```python
+integration.configure_alignment(
+    max_priority=1,
+    categories=[
+        EthicsCategory.AGENT_ETHICS,
+        EthicsCategory.ACCOUNTABILITY,
+        EthicsCategory.TRANSPARENCY
+    ]
+)
+```
+
+### Multi-Agent Collaboration (NEW)
+
+```python
+integration.configure_alignment(
+    max_priority=2,
+    categories=[
+        EthicsCategory.AGENT_ETHICS,
+        EthicsCategory.FAIRNESS,
+        EthicsCategory.ACCOUNTABILITY
+    ]
+)
+```
+
 ## Troubleshooting
 
 ### Context Too Large?
@@ -419,4 +473,13 @@ python examples/advanced_usage.py
 
 # Run AI agent integration example
 python examples/ai_agent_integration.py
+
+# Run agent ethics example (NEW)
+python examples/agent_ethics.py
+
+# Run adversarial resilience example
+python examples/adversarial_resilience.py
+
+# Run labor rights example
+python examples/labor_rights.py
 ```
